@@ -1,0 +1,11 @@
+package lesson7.homework;
+
+public class Task1 {
+    public static void main(String[] args) {
+        int[] nums = {7, -3, 9, -11, 18, 99, 2, 11};
+
+        for (int i = 0; i <= 2; i++) {
+            System.out.println(nums[i]);
+        }
+    }
+}
