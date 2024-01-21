@@ -1,4 +1,4 @@
-package lesson12;
+package lesson12.classwork;
 
 public class Test {
     public static void main(String[] args) {
