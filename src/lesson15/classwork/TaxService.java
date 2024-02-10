@@ -1,4 +1,4 @@
-package lesson15.classwork.task2;
+package lesson15.classwork;
 
 import java.math.BigDecimal;
 

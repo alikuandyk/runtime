@@ -1,6 +1,4 @@
-package lesson16.classwork;
-
-import java.util.Arrays;
+package lesson16.classwork_tasks;
 
 public class Test {
     public static void main(String[] args) {

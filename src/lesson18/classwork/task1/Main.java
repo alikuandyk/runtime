@@ -3,14 +3,6 @@ package lesson18.classwork.task1;
 public class Main {
     public static void main(String[] args) {
         StringBuilder builder = new StringBuilder("users=[");
-//
-//        for (int i = 1; i <= 10; i++) {
-//            builder.append(i).append(", ");
-//        }
-//        builder.delete(builder.length() - 2, builder.length());
-//        builder.append("]");
-//
-//        System.out.println(builder);
 
         User[] users = {
                 new User("Алдияр", 23, new Post[]{
@@ -56,11 +48,7 @@ public class Main {
                     .append(", postedAt=")
                     .append(user.getPosts()[i].getPostedAt())
                     .append("}, ");
-
-//            if (user.getPosts()[i]. == -1)
         }
-
-//        builder.delete(builder.length() - 2, builder.length());
         return builder;
     }
 }
@@ -69,7 +57,6 @@ class User {
     private String name;
     private int age;
     private Post[] posts;
-    // геттеры, сеттеры и конструктор
 
     public User(String name, int age, Post[] posts) {
         this.name = name;

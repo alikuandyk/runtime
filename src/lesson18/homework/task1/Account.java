@@ -1,7 +1,7 @@
 package lesson18.homework.task1;
 
 public abstract class Account {
-    private int bill;
+    protected int bill;
 
     public Account(int bill) {
         this.bill = bill;

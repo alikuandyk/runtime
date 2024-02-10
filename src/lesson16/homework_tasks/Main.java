@@ -1,4 +1,4 @@
-package lesson16.homework.task123456;
+package lesson16.homework_tasks;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -71,7 +71,7 @@ public class Main {
 
 
 //        task4
-
+//        не выполнил, потому что тяжко было =)
 
 
 //        task5
