@@ -15,6 +15,7 @@ public class FileToData {
 //                    Integer.parseInt(items[2]),
 //                    Integer.parseInt(items[3])));
 //        }
+
 //        Мой код
         for (int i = 0; i < 3; i++) {
             List<Transaction> list = new ArrayList<>();

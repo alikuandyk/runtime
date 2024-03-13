@@ -1,0 +1,2 @@
+user_name, age, posts
+user1,21,3user2,22,3user3,23,3user4,24,3user5,25,3user6,26,3user7,27,3user8,28,3user9,29,3
