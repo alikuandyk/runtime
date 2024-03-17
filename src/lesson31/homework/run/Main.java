@@ -1,18 +1,35 @@
-package lesson31.homework;
+package lesson31.homework.run;
 
-import lesson31.homework.interfaces.Manager;
-import lesson31.homework.tasks.Epic;
-import lesson31.homework.tasks.Subtask;
-import lesson31.homework.tasks.Task;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("число: ");
+        int id = scanner.nextInt();
+        try (Writer writer = new FileWriter("src/lesson31/homework/example.csv")){
+//            writer.append("id,name,description,start_time,duration,epic_id\n");
+//            writer.append("1,1,1,1,1,1\n");
+//            writer.append("2,2,2,2,2,2\n");
+//            writer.append("3,3,3,3,3,3\n");
+//            writer.append("4,4,4,4,4,4\n");
+            Reader reader = new FileReader("src/lesson32/homework.example.csv");
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            bufferedReader.readLine();
+
+            while (bufferedReader.ready()) {
+                String line = bufferedReader.readLine();
+                String[] array = line.split(",");
+
+                if (Integer.parseInt(array[0]) == id) {
+                    writer.append("");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
 //        Task task1 = new Task("Купить хлеб", "у нас закончилось хлеб", "2024.03.13", "9");
 //        Task task2 = new Task("Выбросить мусор", "мусорное ведро переполнено");
 //        Task task3 = new Task("Приготовить ужин", "вечером придут гости");

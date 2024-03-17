@@ -1,11 +1,14 @@
-package lesson31.homework.interface_implementation;
+package lesson31.homework.managers;
 
-import lesson31.homework.interfaces.Manager;
+import lesson31.homework.managers.Manager;
 import lesson31.homework.status.Status;
 import lesson31.homework.tasks.Epic;
 import lesson31.homework.tasks.Subtask;
 import lesson31.homework.tasks.Task;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,11 +18,30 @@ public class ManagerImpl implements Manager {
     private Map<Integer, Task> tasks = new HashMap<>();
     private Map<Integer, Epic> epics = new HashMap<>();
     private Map<Integer, Subtask> subtasks = new HashMap<>();
-
+    private List<Task> priorityTasks = new ArrayList<>();
     private static Integer uniqueId = 1;
 
     public static Integer getUniqueId() {
         return uniqueId++;
+    }
+
+    public void setPriorityTasks() {
+        List<Task> list = new ArrayList<>();
+        list.addAll(tasks.values());
+        list.addAll(epics.values());
+        list.addAll(subtasks.values());
+
+        for (int i = 0; i < list.size(); i++) {
+            Task prioryTask = list.get(i);
+            for (int j = 0; j < list.size(); j++) {
+                Task task = list.get(j);
+                if (task.compareTo(prioryTask) > 0) {
+                    prioryTask = task;
+                }
+            }
+            priorityTasks.add(prioryTask);
+            list.remove(prioryTask);
+        }
     }
 
     void statusControl() {
@@ -44,7 +66,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public List<Task> getAllTasks() {
+    public List<Task> getAllTasks() throws IOException {
         List<Task> allTasks = new ArrayList<>();
         for (Task value : tasks.values()) {
             allTasks.add(value);
@@ -69,7 +91,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public Task getTaskById(int id) {
+    public Task getTaskById(int id) throws IOException {
         return tasks.get(id);
     }
 
@@ -84,7 +106,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public void createTask(Task task) {
+    public void createTask(Task task) throws IOException {
         int id = getUniqueId();
         this.tasks.put(id, task);
         task.setId(id);
@@ -108,7 +130,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public void update(int id, Task newTask) {
+    public void update(int id, Task newTask) throws IOException {
         if (tasks.containsKey(id)) {
             tasks.replace(id, tasks.get(id), newTask);
             return;
@@ -125,7 +147,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int id) throws IOException {
         if (tasks.containsKey(id)) {
             tasks.remove(id);
             return;
@@ -142,8 +164,32 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public List<Subtask> getSubtasksByEpicId(int id) {
+    public List<Subtask> getSubtasksByEpicId(int id) throws IOException {
         Epic epic = epics.get(id);
         return epic.getSubtasks();
+    }
+
+    public Map<Integer, Task> getTasks() {
+        return tasks;
+    }
+
+    public Map<Integer, Epic> getEpics() {
+        return epics;
+    }
+
+    public Map<Integer, Subtask> getSubtasks() {
+        return subtasks;
+    }
+
+    public void setTasks(int id, Task task) {
+        this.tasks.put(id, task);
+    }
+
+    public void setEpics(int id, Epic epic) {
+        this.epics.put(id, epic);
+    }
+
+    public void setSubtasks(int id, Subtask subtask) {
+        this.subtasks.put(id, subtask);
     }
 }

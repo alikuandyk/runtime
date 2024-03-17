@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Epic extends Task {
     private ArrayList<Subtask> subtasks;
 
-    public Epic(String name, String description, Status status, LocalDateTime startTime, Duration duration, ArrayList<Subtask> subtasks) {
+    public Epic(String name, String description, LocalDateTime startTime, Duration duration, ArrayList<Subtask> subtasks) {
         super(name, description, startTime, duration);
         this.subtasks = subtasks;
     }

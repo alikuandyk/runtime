@@ -6,7 +6,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Task {
+public class Task implements Comparable<Task> {
     private String name;
     private String description;
     private int id;
@@ -87,5 +87,10 @@ public class Task {
 
     public static void setUniqueId(Integer uniqueId) {
         Task.uniqueId = uniqueId;
+    }
+
+    @Override
+    public int compareTo(Task o) {
+        return this.getStartTime().compareTo(o.getStartTime());
     }
 }

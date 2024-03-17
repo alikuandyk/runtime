@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class Subtask extends Task {
     private Epic epic;
 
-    public Subtask(String name, String description, Status status, LocalDateTime startTime, Duration duration, Epic epic) {
+    public Subtask(String name, String description, LocalDateTime startTime, Duration duration, Epic epic) {
         super(name, description, startTime, duration);
         this.epic = epic;
     }
