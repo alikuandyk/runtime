@@ -25,7 +25,7 @@ public class ManagerImpl implements Manager {
         return uniqueId++;
     }
 
-    public void setPriorityTasks() {
+    public void getPriorityTasks() {
         List<Task> list = new ArrayList<>();
         list.addAll(tasks.values());
         list.addAll(epics.values());
