@@ -14,7 +14,7 @@ public class Main {
 //            writer.append("2,2,2,2,2,2\n");
 //            writer.append("3,3,3,3,3,3\n");
 //            writer.append("4,4,4,4,4,4\n");
-            Reader reader = new FileReader("src/lesson32/homework.example.csv");
+            Reader reader = new FileReader("src/lesson31/homework.example.csv");
             BufferedReader bufferedReader = new BufferedReader(reader);
             bufferedReader.readLine();
 

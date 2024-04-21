@@ -1,6 +1,5 @@
 package lesson31.homework.tasks;
 
-
 import lesson31.homework.status.Status;
 
 import java.time.Duration;
